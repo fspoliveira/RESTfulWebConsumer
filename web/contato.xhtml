@@ -1,0 +1,121 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <ui:composition template="/home.xhtml">
+        <ui:define name="contato">
+            <p:panel header="Cadastro de Contatos" style="border: #ffffff" toggleable="true" closable="false" toggleSpeed="500" closeSpeed="2000" widgetVar="panel" >
+                <h:form prependId="false" id="menulateral">
+                    <p:menubar>
+                        <p:menuitem value="Novo Contato" actionListener="#{contatoC.prepararAdicionarContato}" update=":form:infosContato" oncomplete="dialogGerContato.show()"  icon="ui-icon-document"/>                       
+                        <p:menuitem value="Sair" url="/home.jsf" icon="ui-icon-extlink"/>
+                    </p:menubar>                    
+                </h:form>
+                <h:form prependId="false" id="form1">
+                    <p:dataTable id="tabela" var="contato" value="#{contatoC.listarContatos}">
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Email"/>
+                            </f:facet>
+                            <h:outputText value="#{contato.email}" />
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Nome"/>
+                            </f:facet>
+                            <h:outputText value="#{contato.nome}" />
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Telefone"/>
+                            </f:facet>
+                            <h:outputText value="#{contato.telefone}" />
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Endereço"/>
+                            </f:facet>
+                            <h:outputText value="#{contato.endereco}" />
+                        </p:column>
+                         <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Cidade"/>
+                            </f:facet>
+                            <h:outputText value="#{contato.cidade}" />
+                        </p:column>
+                         <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Estado"/>
+                            </f:facet>
+                            <h:outputText value="#{contato.estado}" />
+                        </p:column>
+                         <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="País"/>
+                            </f:facet>
+                            <h:outputText value="#{contato.pais}" />
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Alterar"/>
+                            </f:facet>
+                            <p:commandButton actionListener="#{contatoC.prepararAlterarContato}" icon="ui-icon-arrowrefresh-1-w" update=":form:infosContato" oncomplete="dialogGerContato.show()" />
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Excluir"/>
+                            </f:facet>
+                            <p:commandButton actionListener="#{contatoC.excluirContato}" icon="ui-icon-close" ajax="true" onclick="confirmation.show()" />
+                        </p:column>
+                    </p:dataTable>                    
+                </h:form>
+
+                <p:dialog header="Gerencia Contato" widgetVar="dialogGerContato"  resizable="false" modal="false" showEffect="slide" width="500">
+                    <h:form prependId="false" id="form">
+                        <p:menubar>
+                            <p:menuitem  value="Salvar" update=":form1:tabela" oncomplete="dialogGerContato.hide();" actionListener="#{contatoC.adicionarContato}" icon="ui-icon-disk" />
+                            <p:menuitem value="Alterar" update=":form1:tabela" oncomplete="dialogGerContato.hide();" actionListener="#{contatoC.alterarContato}" icon="ui-icon-arrowrefresh-1-w"/>                    
+                        </p:menubar>  
+                        <h:panelGrid id="infosContato" columns="2" style="margin-bottom:10px">
+                            <h:outputLabel for="emailContato" value="Email" />
+                            <h:inputText id="emailContato" value="#{contatoC.contato.email}"
+                                         required="true">
+                                <f:validateLength minimum="2"/> 
+                            </h:inputText>                            
+                            <h:outputLabel for="nomeContato" value="Nome" />
+                            <h:inputText id="nomeContato" value="#{contatoC.contato.nome}"
+                                         required="true">
+                                <f:validateLength minimum="2"/> 
+                            </h:inputText> 
+                            <h:outputLabel for="telContato" value="Telefone" />
+                            <h:inputText id="telContato" value="#{contatoC.contato.telefone}"/>                             
+                            <h:outputLabel for="endContato" value="Endereço" />
+                            <h:inputText id="endContato" value="#{contatoC.contato.endereco}"
+                                             required="true">
+                                <f:validateLength minimum="2"/> 
+                            </h:inputText>
+                            <h:outputLabel for="cidContato" value="Cidade" />
+                            <h:inputText id="cidContato" value="#{contatoC.contato.cidade}"
+                                             required="true">
+                             <f:validateLength minimum="2"/> 
+                            </h:inputText>
+                            <h:outputLabel for="estContato" value="Estado" />
+                            <h:inputText id="estContato" value="#{contatoC.contato.estado}"
+                                             required="true">
+                             <f:validateLength minimum="2"/> 
+                            </h:inputText>
+                            <h:outputLabel for="estContato" value="País" />
+                            <h:inputText id="paisContato" value="#{contatoC.contato.pais}"
+                                             required="true">
+                             <f:validateLength minimum="2"/> 
+                            </h:inputText>
+                        </h:panelGrid>
+                    </h:form>
+                </p:dialog>
+            </p:panel>
+        </ui:define>
+    </ui:composition>  
+</html>
