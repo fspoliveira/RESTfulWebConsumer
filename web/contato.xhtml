@@ -40,19 +40,19 @@
                             </f:facet>
                             <h:outputText value="#{contato.endereco}" />
                         </p:column>
-                         <p:column>
+                        <p:column>
                             <f:facet name="header">
                                 <h:outputText value="Cidade"/>
                             </f:facet>
                             <h:outputText value="#{contato.cidade}" />
                         </p:column>
-                         <p:column>
+                        <p:column>
                             <f:facet name="header">
                                 <h:outputText value="Estado"/>
                             </f:facet>
                             <h:outputText value="#{contato.estado}" />
                         </p:column>
-                         <p:column>
+                        <p:column>
                             <f:facet name="header">
                                 <h:outputText value="País"/>
                             </f:facet>
@@ -93,24 +93,16 @@
                             <h:outputLabel for="telContato" value="Telefone" />
                             <h:inputText id="telContato" value="#{contatoC.contato.telefone}"/>                             
                             <h:outputLabel for="endContato" value="Endereço" />
-                            <h:inputText id="endContato" value="#{contatoC.contato.endereco}"
-                                             required="true">
-                                <f:validateLength minimum="2"/> 
+                            <h:inputText id="endContato" value="#{contatoC.contato.endereco}">                                
                             </h:inputText>
                             <h:outputLabel for="cidContato" value="Cidade" />
-                            <h:inputText id="cidContato" value="#{contatoC.contato.cidade}"
-                                             required="true">
-                             <f:validateLength minimum="2"/> 
+                            <h:inputText id="cidContato" value="#{contatoC.contato.cidade}">                            
                             </h:inputText>
                             <h:outputLabel for="estContato" value="Estado" />
-                            <h:inputText id="estContato" value="#{contatoC.contato.estado}"
-                                             required="true">
-                             <f:validateLength minimum="2"/> 
+                            <h:inputText id="estContato" value="#{contatoC.contato.estado}">                            
                             </h:inputText>
                             <h:outputLabel for="estContato" value="País" />
-                            <h:inputText id="paisContato" value="#{contatoC.contato.pais}"
-                                             required="true">
-                             <f:validateLength minimum="2"/> 
+                            <h:inputText id="paisContato" value="#{contatoC.contato.pais}"> 
                             </h:inputText>
                         </h:panelGrid>
                     </h:form>
