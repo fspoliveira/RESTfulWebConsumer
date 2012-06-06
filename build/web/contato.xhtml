@@ -80,12 +80,12 @@
                             <p:menuitem value="Alterar" update=":form1:tabela" oncomplete="dialogGerContato.hide();" actionListener="#{contatoC.alterarContato}" icon="ui-icon-arrowrefresh-1-w"/>                    
                         </p:menubar>  
                         <h:panelGrid id="infosContato" columns="2" style="margin-bottom:10px">
-                            <h:outputLabel for="emailContato" value="Email" />
+                            <h:outputLabel for="emailContato" value="Email (*)" />
                             <h:inputText id="emailContato" value="#{contatoC.contato.email}"
                                          required="true">
                                 <f:validateLength minimum="2"/> 
                             </h:inputText>                            
-                            <h:outputLabel for="nomeContato" value="Nome" />
+                            <h:outputLabel for="nomeContato" value="Nome (*)" />
                             <h:inputText id="nomeContato" value="#{contatoC.contato.nome}"
                                          required="true">
                                 <f:validateLength minimum="2"/> 
