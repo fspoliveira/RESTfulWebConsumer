@@ -1,5 +1,9 @@
 package br.com.fiap.rest;
 
+import br.com.fiap.bean.Agenda;
+import br.com.fiap.bean.Contato;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import java.io.IOException;
 import java.util.logging.Level;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -8,10 +12,11 @@ import org.restlet.data.Form;
 import org.restlet.ext.json.JsonRepresentation;
 import org.restlet.representation.Representation;
 import org.restlet.resource.ClientResource;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import br.com.fiap.bean.Agenda;
-import br.com.fiap.bean.Contato;
-import java.io.IOException;
+
+/**
+ *
+ * @author fsantiago
+ */
 
 /**
  * Classe do Gerenciador de Agenda, consome o REST AgendaServer

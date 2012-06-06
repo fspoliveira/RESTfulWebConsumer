@@ -2,6 +2,12 @@ package br.com.fiap.bean;
 
 import java.util.List;
 
+
+/**
+ *
+ * @author fsantiago
+ */
+
 /**
  * Classe que implementa a Agenda dos contatos.
  */

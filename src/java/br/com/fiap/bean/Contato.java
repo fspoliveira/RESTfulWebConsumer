@@ -1,5 +1,11 @@
 package br.com.fiap.bean;
 
+
+/**
+ *
+ * @author fsantiago
+ */
+
 /**
  * Classe bean que representa um Contato.
  */

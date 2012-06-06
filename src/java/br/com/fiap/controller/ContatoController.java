@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.com.fiap.controller;
 
 
@@ -20,6 +16,11 @@ import javax.faces.model.ListDataModel;
  *
  * @author fsantiago
  */
+
+/**
+ * Classe Controller agenda de Contatos.
+ */
+
 @ManagedBean(name = "contatoC")
 @SessionScoped
 public class ContatoController {
